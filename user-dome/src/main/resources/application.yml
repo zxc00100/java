@@ -1,0 +1,18 @@
+server:
+  port: 80
+spring:
+  application:
+    name: user-mode
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    #表示是否将自己注册进eureka
+    register-with-eureka: true
+    #是否从注册中心获取已有的服务注册信息
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/ #,http://localhost:7002/eureka/

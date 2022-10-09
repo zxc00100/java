@@ -1,0 +1,23 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: server-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: pay-mode1
+          #uri: http://localhost:8081
+          uri: lb://PAY-MODE
+          predicates:
+            #- Path=/orderNum/get/**
+            - Path=/get/**
+      enabled: true
+eureka:
+  instance:
+    appname: server-gateway
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server1:7001/eureka/

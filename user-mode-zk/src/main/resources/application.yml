@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: user-mode-zk
+  cloud:
+    zookeeper:
+      connect-string: 192.144.235.110:2181

@@ -1,0 +1,9 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: pay-mode-zk
+  cloud:
+    zookeeper:
+      connect-string: 192.144.235.110:2181

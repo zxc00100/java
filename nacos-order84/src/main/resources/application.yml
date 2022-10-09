@@ -1,0 +1,30 @@
+server:
+  port: 84
+spring:
+  application:
+    name: nacos-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+        datasource:
+          # 名字随意
+          ds:
+            nacos:
+              # nacos的访问地址，，根据上面准备工作中启动的实例配置
+              server-add: localhost:8848
+              # nacos中存储规则的groupId
+              groupId: DEFAULT_GROUP
+              # nacos中存储规则的dataId
+              dataId: nacos-order
+              # 用来定义存储的规则类型
+              rule-type: flow
+              data-type: json
+service-url: http://payment
+feign:
+  sentinel:
+    enabled: true

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxc.sgg.dao.OrderNumDao">
+
+    <insert id="create" parameterType="OrderNum" useGeneratedKeys="true" keyColumn="id">
+        insert into ordernum(order_num) values (#{orderNum})
+    </insert>
+
+    <resultMap id="OrderNumResultMap" type="com.zxc.sgg.entity.OrderNum">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <id column="order_num" property="orderNum" jdbcType="VARCHAR"></id>
+    </resultMap>
+    <select id="getOrderNumById" parameterType="Long" resultMap="OrderNumResultMap">
+        select * from ordernum where id = #{id}
+    </select>
+</mapper>
